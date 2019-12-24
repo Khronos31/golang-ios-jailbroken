@@ -1,0 +1,21 @@
+--- A/go/src/runtime/cgo/cgo.go	1576940942.767676000
++++ B/go/src/runtime/cgo/cgo.go	1576942114.766695000
+@@ -12,8 +12,6 @@
+ /*
+ 
+ #cgo darwin,!arm,!arm64 LDFLAGS: -lpthread
+-#cgo darwin,arm LDFLAGS: -framework CoreFoundation
+-#cgo darwin,arm64 LDFLAGS: -framework CoreFoundation
+ #cgo dragonfly LDFLAGS: -lpthread
+ #cgo freebsd LDFLAGS: -lpthread
+ #cgo android LDFLAGS: -llog
+@@ -27,5 +25,9 @@
+ 
+ #cgo solaris CPPFLAGS: -D_POSIX_PTHREAD_SEMANTICS
+ 
++#cgo darwin,arm LDFLAGS: -miphoneos-version-min=7.0 -arch armv7 --sysroot=/usr/share/SDKs/iPhoneOS.sdk -framework CoreFoundation
++#cgo darwin,arm CFLAGS: -miphoneos-version-min=7.0 -arch armv7 --sysroot=/usr/share/SDKs/iPhoneOS.sdk -framework CoreFoundation -Wno-unused-command-line-argument
++#cgo darwin,arm64 LDFLAGS: -miphoneos-version-min=7.0 -arch arm64 --sysroot=/usr/share/SDKs/iPhoneOS.sdk -framework CoreFoundation
++#cgo darwin,arm64 CFLAGS: -miphoneos-version-min=7.0 -arch arm64 --sysroot=/usr/share/SDKs/iPhoneOS.sdk -framework CoreFoundation -Wno-unused-command-line-argument
+ */
+ import "C"

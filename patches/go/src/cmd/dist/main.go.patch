@@ -1,0 +1,10 @@
+--- A/go/src/cmd/dist/main.go	1576940942.441325000
++++ B/go/src/cmd/dist/main.go	1576942114.398001000
+@@ -55,6 +55,7 @@
+ 	}
+ 
+ 	gohostos = runtime.GOOS
++	gohostarch = runtime.GOARCH
+ 	switch gohostos {
+ 	case "aix":
+ 		// uname -m doesn't work under AIX

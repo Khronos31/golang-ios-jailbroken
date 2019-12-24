@@ -1,0 +1,19 @@
+--- A/go/src/cmd/go/internal/work/security.go	1576940942.599565000
++++ B/go/src/cmd/go/internal/work/security.go	1576942114.610974000
+@@ -43,6 +43,7 @@
+ 
+ var validCompilerFlags = []*lazyregexp.Regexp{
+ 	re(`-D([A-Za-z_].*)`),
++	re(`-L([^@\-].*)`),
+ 	re(`-F([^@\-].*)`),
+ 	re(`-I([^@\-].*)`),
+ 	re(`-O`),
+@@ -137,6 +138,8 @@
+ }
+ 
+ var validLinkerFlags = []*lazyregexp.Regexp{
++	re(`-I([^@\-].*)`),
++	re(`--sysroot=([^@\-].*)`),
+ 	re(`-F([^@\-].*)`),
+ 	re(`-l([^@\-].*)`),
+ 	re(`-L([^@\-].*)`),

@@ -1,0 +1,16 @@
+Package: com.khronos.golang
+Priority: optional
+Name: Go
+Version: 1.13.5-9
+Section: Scripting
+Architecture: iphoneos-arm
+Depends: com.khronos.sdk
+Conflicts: com.mc.golang
+Pre-Depends: dpkg
+Maintainer: Khronos
+Homepage: https://golang.org
+Tag: purpose::console
+Description: Compiled for ARM64.
+	Open source programming language to build simple/reliable/efficient software.
+	Golang is built statically and therefore is large (300mb warning!).
+	Make sure to not let dpkg/Cydia die when installing.
